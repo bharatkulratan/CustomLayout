@@ -42,6 +42,11 @@ public class CustomLayout extends ViewGroup {
         }
     }
 
+    /**
+     * onMeasure() is called in first phase where child views are measured
+     * @param widthMeasureSpec Horizontal space requirements as imposed by the parent
+     * @param heightMeasureSpec Vertical space requirements as imposed by the parent
+     */
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
@@ -54,7 +59,10 @@ public class CustomLayout extends ViewGroup {
 
         for(int i=0; i<viewsInLayout; i++){
             View v = getChildAt(i);
-            // measuring child view specs
+            /**
+             * measure() is called to find out how big a view should be.
+             * The parent supplies constraint information in the width and height parameters.
+             */
             v.measure(widthSpec, heightSpec);
         }
     }
